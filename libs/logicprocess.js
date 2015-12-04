@@ -13,7 +13,7 @@ function SocketConnection(addr){
 	this.id = 0;
 	this.buffer = '';
 	this.socket = net.createConnection(addr);
-	this.socket.on('data', this.onLine.bind(this));
+	this.socket.on('data', this.onData.bind(this));
 	this.socket.on('close', () => {
 		this.socket.removeAllListeners();
 		this.socket = null;
@@ -23,7 +23,7 @@ function SocketConnection(addr){
 
 util.inherits(SocketConnection, EventEmitter);
 
-SocketConnection.prototype.onLine = function(raw_line) {
+SocketConnection.prototype.onData = function(raw_line) {
 	this.buffer += raw_line.toString();
 	this.processBuffer();
 };
