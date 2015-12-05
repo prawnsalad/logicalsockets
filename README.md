@@ -21,6 +21,7 @@ Examples of a TCP, socket.io and sockjs websocket servers can be found in listen
 
 ### How it works
 Keeping it simple, there are only 2 parts to the system.
+
 1. A listening process that listens out for new clients or users.
 2. A logic process that contains your application.
 
